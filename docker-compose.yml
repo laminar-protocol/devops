@@ -11,7 +11,7 @@ services:
     command:
       - "flowchain"
       - "--base-path=/laminar/data"
-      - "--chain=alpha"
+      - "--chain=testnet"
       - "--node-key=${NODE_ID}"
       - "--port=30333"
       - "--validator"
