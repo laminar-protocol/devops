@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  node:
+    ports:
+      - "9944:9944"
+      - "9933:9933"
+      - "30333:30333"
+    volumes:
+      - node-data:/laminar/data
+    image: laminar/laminar-node:latest
+    command:
+      - "laminar"
+      - "--base-path=/laminar/data"
+      - "--chain=alpha"
+      - "--node-key=${NODE_ID}"
+      - "--port=30333"
+      - "--validator"
+      - "--unsafe-ws-external"
+      - "--unsafe-rpc-external"
+      - "--rpc-cors=all"
+      - "--force-authoring"
+      - "--name=laminar-node"
+      - "--ws-max-connections=200"
+volumes:
+  node-data:
