@@ -9,7 +9,7 @@ services:
       - node-data:/laminar/data
     image: laminar/laminar-node:latest
     command:
-      - "laminar"
+      - "flowchain"
       - "--base-path=/laminar/data"
       - "--chain=alpha"
       - "--node-key=${NODE_ID}"
