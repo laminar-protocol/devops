@@ -9,7 +9,6 @@ services:
       - node-data:/laminar/data
     image: laminar/laminar-node:latest
     command:
-      - "laminar"
       - "--base-path=/laminar/data"
       - "--chain=testnet"
       - "--node-key=${NODE_ID}"
