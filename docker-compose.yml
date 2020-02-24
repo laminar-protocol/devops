@@ -8,6 +8,7 @@ services:
     volumes:
       - node-data:/laminar/data
     image: laminar/laminar-node:latest
+    restart: always
     command:
       - "--base-path=/laminar/data"
       - "--chain=testnet"
