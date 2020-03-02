@@ -11,9 +11,8 @@ services:
     restart: always
     command:
       - "--base-path=/laminar/data"
-      - "--chain=testnet"
+      - "--dev"
       - "--node-key=${NODE_ID}"
-      - "--port=30333"
       - "--validator"
       - "--unsafe-ws-external"
       - "--unsafe-rpc-external"
