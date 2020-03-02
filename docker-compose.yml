@@ -20,5 +20,7 @@ services:
       - "--force-authoring"
       - "--name=laminar-node"
       - "--ws-max-connections=200"
+      - "-l"
+      - "runtime=debug"
 volumes:
   node-data:
