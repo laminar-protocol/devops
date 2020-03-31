@@ -5,12 +5,13 @@ services:
       - "9944:9944"
       - "9933:9933"
       - "30333:30333"
+      - "9615:9615"
     volumes:
-      - node-data:/laminar/data
+      - node-data:/data
     image: laminar/laminar-node:latest
     restart: always
     command:
-      - "--base-path=/laminar/data"
+      - "--base-path=/data"
       - "--dev"
       - "--node-key=${NODE_ID}"
       - "--validator"
