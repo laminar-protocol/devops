@@ -8,13 +8,11 @@ services:
       - "9615:9615"
     volumes:
       - node-data:/data
-    image: laminar/laminar-node:latest
+    image: laminardev/laminar-node:latest
     restart: always
     command:
       - "--base-path=/data"
       - "--dev"
-      - "--node-key=${NODE_ID}"
-      - "--validator"
       - "--unsafe-ws-external"
       - "--unsafe-rpc-external"
       - "--rpc-cors=all"
