@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  node:
+    ports:
+      - "9944:9944"
+      - "9933:9933"
+      - "30333:30333"
+      - "9615:9615"
+    volumes:
+      - node-data:/data
+    image: laminardev/laminar-node:latest
+    restart: always
+    command:
+      - "--base-path=/data"
+      - "--dev"
+      - "--unsafe-ws-external"
+      - "--unsafe-rpc-external"
+      - "--rpc-cors=all"
+      - "--force-authoring"
+      - "--name=laminar-node"
+      - "--ws-max-connections=200"
+      - "-l"
+      - "runtime=debug"
+volumes:
+  node-data:
