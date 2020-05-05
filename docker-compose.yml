@@ -1,27 +1,126 @@
 version: "3.7"
 services:
-  node:
+  sentry:
     ports:
       - "9944:9944"
       - "9933:9933"
       - "30333:30333"
-      - "9615:9615"
     volumes:
       - node-data:/data
     image: laminar/laminar-node:latest
     restart: always
     command:
-      - "--base-path=/data"
-      - "--dev"
-      - "--node-key=${NODE_ID}"
+      - "--base-path=/data/sentry"
+      - "--chain=dev"
+      - "--node-key=${SENTRY_1}"
+      - "--sentry"
+      - "/dns4/validator-1/tcp/30334/p2p/QmNSWiNbdA1YJwxAHBTJpuhBnGhNgyP25edo1Tpu2B5JZr"
+      - "--sentry"
+      - "/dns4/validator-2/tcp/30335/p2p/QmTmTHcR4F12eBDgenSmwkpzfDEow5A7Wc3etiYm6AVXnC"
+      - "--sentry"
+      - "/dns4/validator-3/tcp/30336/p2p/QmRriPbD6RiTXb9VveQLZCKB9awzgsurbdtqk61qjsoXU1"
+      - "--unsafe-ws-external"
+      - "--unsafe-rpc-external"
+      - "--rpc-cors=all"
+      - "--name=acala-sentry"
+      - "--ws-max-connections=200"
+      - "--in-peers=150"
+      - "--reserved-nodes"
+      - "/dns4/validator-1/tcp/30334/p2p/QmNSWiNbdA1YJwxAHBTJpuhBnGhNgyP25edo1Tpu2B5JZr"
+      - "--reserved-nodes"
+      - "/dns4/validator-2/tcp/30335/p2p/QmTmTHcR4F12eBDgenSmwkpzfDEow5A7Wc3etiYm6AVXnC"
+      - "--reserved-nodes"
+      - "/dns4/validator-3/tcp/30336/p2p/QmRriPbD6RiTXb9VveQLZCKB9awzgsurbdtqk61qjsoXU1"
+      - "--wasm-execution=Compiled"
+  validator-1:
+    ports:
+      - "19944:9944"
+      - "19933:9933"
+      - "30334:30334"
+    volumes:
+      - node-data:/data
+    image: laminar/laminar-node:latest
+    restart: always
+    command:
+      - "--base-path=/data/validator-1"
+      - "--chain=dev"
+      - "--node-key=${VALIDATOR_1}"
       - "--validator"
       - "--unsafe-ws-external"
       - "--unsafe-rpc-external"
       - "--rpc-cors=all"
-      - "--force-authoring"
-      - "--name=laminar-node"
-      - "--ws-max-connections=200"
-      - "-l"
-      - "runtime=debug"
+      - "--name=acala-validator-1"
+      - "--sentry-nodes"
+      - "/dns4/testnet-bootnode-1.acala.laminar.one/tcp/30333/p2p/QmZKdYinGon2nUXgfkipdRuGSmQnmks3q6EhmXUSwULUFT"
+      - "--reserved-nodes"
+      - "/dns4/sentry/tcp/30333/p2p/QmZKdYinGon2nUXgfkipdRuGSmQnmks3q6EhmXUSwULUFT"
+      - "--reserved-nodes"
+      - "/dns4/validator-1/tcp/30334/p2p/QmNSWiNbdA1YJwxAHBTJpuhBnGhNgyP25edo1Tpu2B5JZr"
+      - "--reserved-nodes"
+      - "/dns4/validator-2/tcp/30335/p2p/QmTmTHcR4F12eBDgenSmwkpzfDEow5A7Wc3etiYm6AVXnC"
+      - "--reserved-nodes"
+      - "/dns4/validator-3/tcp/30336/p2p/QmRriPbD6RiTXb9VveQLZCKB9awzgsurbdtqk61qjsoXU1"
+      - "--port=30334"
+      - "--wasm-execution=Compiled"
+  validator-2:
+    ports:
+      - "29944:9944"
+      - "29933:9933"
+      - "30335:30335"
+    volumes:
+      - node-data:/data
+    image: laminar/laminar-node:latest
+    restart: always
+    command:
+      - "--base-path=/data/validator-2"
+      - "--chain=dev"
+      - "--node-key=${VALIDATOR_2}"
+      - "--validator"
+      - "--unsafe-ws-external"
+      - "--unsafe-rpc-external"
+      - "--rpc-cors=all"
+      - "--name=acala-validator-2"
+      - "--sentry-nodes"
+      - "/dns4/testnet-bootnode-1.acala.laminar.one/tcp/30333/p2p/QmZKdYinGon2nUXgfkipdRuGSmQnmks3q6EhmXUSwULUFT"
+      - "--reserved-nodes"
+      - "/dns4/sentry/tcp/30333/p2p/QmZKdYinGon2nUXgfkipdRuGSmQnmks3q6EhmXUSwULUFT"
+      - "--reserved-nodes"
+      - "/dns4/validator-1/tcp/30334/p2p/QmNSWiNbdA1YJwxAHBTJpuhBnGhNgyP25edo1Tpu2B5JZr"
+      - "--reserved-nodes"
+      - "/dns4/validator-2/tcp/30335/p2p/QmTmTHcR4F12eBDgenSmwkpzfDEow5A7Wc3etiYm6AVXnC"
+      - "--reserved-nodes"
+      - "/dns4/validator-3/tcp/30336/p2p/QmRriPbD6RiTXb9VveQLZCKB9awzgsurbdtqk61qjsoXU1"
+      - "--port=30335"
+      - "--wasm-execution=Compiled"
+  validator-3:
+    ports:
+      - "39944:9944"
+      - "39933:9933"
+      - "30336:30336"
+    volumes:
+      - node-data:/data
+    image: laminar/laminar-node:latest
+    restart: always
+    command:
+      - "--base-path=/data/validator-3"
+      - "--chain=dev"
+      - "--node-key=${VALIDATOR_3}"
+      - "--validator"
+      - "--unsafe-ws-external"
+      - "--unsafe-rpc-external"
+      - "--rpc-cors=all"
+      - "--name=acala-validator-3"
+      - "--sentry-nodes"
+      - "/dns4/testnet-bootnode-1.acala.laminar.one/tcp/30333/p2p/QmZKdYinGon2nUXgfkipdRuGSmQnmks3q6EhmXUSwULUFT"
+      - "--reserved-nodes"
+      - "/dns4/sentry/tcp/30333/p2p/QmZKdYinGon2nUXgfkipdRuGSmQnmks3q6EhmXUSwULUFT"
+      - "--reserved-nodes"
+      - "/dns4/validator-1/tcp/30334/p2p/QmNSWiNbdA1YJwxAHBTJpuhBnGhNgyP25edo1Tpu2B5JZr"
+      - "--reserved-nodes"
+      - "/dns4/validator-2/tcp/30335/p2p/QmTmTHcR4F12eBDgenSmwkpzfDEow5A7Wc3etiYm6AVXnC"
+      - "--reserved-nodes"
+      - "/dns4/validator-3/tcp/30336/p2p/QmRriPbD6RiTXb9VveQLZCKB9awzgsurbdtqk61qjsoXU1"
+      - "--port=30336"
+      - "--wasm-execution=Compiled"
 volumes:
   node-data:
