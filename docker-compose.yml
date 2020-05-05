@@ -11,7 +11,7 @@ services:
     restart: always
     command:
       - "--base-path=/data/sentry"
-      - "--chain=dev"
+      - "--chain=turbulence"
       - "--node-key=${SENTRY_1}"
       - "--sentry"
       - "/dns4/validator-1/tcp/30334/p2p/QmNSWiNbdA1YJwxAHBTJpuhBnGhNgyP25edo1Tpu2B5JZr"
@@ -43,7 +43,7 @@ services:
     restart: always
     command:
       - "--base-path=/data/validator-1"
-      - "--chain=dev"
+      - "--chain=turbulence"
       - "--node-key=${VALIDATOR_1}"
       - "--validator"
       - "--unsafe-ws-external"
@@ -73,7 +73,7 @@ services:
     restart: always
     command:
       - "--base-path=/data/validator-2"
-      - "--chain=dev"
+      - "--chain=turbulence"
       - "--node-key=${VALIDATOR_2}"
       - "--validator"
       - "--unsafe-ws-external"
@@ -103,7 +103,7 @@ services:
     restart: always
     command:
       - "--base-path=/data/validator-3"
-      - "--chain=dev"
+      - "--chain=turbulence"
       - "--node-key=${VALIDATOR_3}"
       - "--validator"
       - "--unsafe-ws-external"
