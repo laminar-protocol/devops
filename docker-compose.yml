@@ -32,6 +32,8 @@ services:
       - "--reserved-nodes"
       - "/dns4/validator-3/tcp/30336/p2p/QmRriPbD6RiTXb9VveQLZCKB9awzgsurbdtqk61qjsoXU1"
       - "--wasm-execution=Compiled"
+      - "--no-telemetry"
+      - "--no-prometheus"
   validator-1:
     ports:
       - "19944:9944"
@@ -62,6 +64,8 @@ services:
       - "/dns4/validator-3/tcp/30336/p2p/QmRriPbD6RiTXb9VveQLZCKB9awzgsurbdtqk61qjsoXU1"
       - "--port=30334"
       - "--wasm-execution=Compiled"
+      - "--no-telemetry"
+      - "--no-prometheus"
   validator-2:
     ports:
       - "29944:9944"
@@ -92,6 +96,8 @@ services:
       - "/dns4/validator-3/tcp/30336/p2p/QmRriPbD6RiTXb9VveQLZCKB9awzgsurbdtqk61qjsoXU1"
       - "--port=30335"
       - "--wasm-execution=Compiled"
+      - "--no-telemetry"
+      - "--no-prometheus"
   validator-3:
     ports:
       - "39944:9944"
@@ -122,5 +128,7 @@ services:
       - "/dns4/validator-3/tcp/30336/p2p/QmRriPbD6RiTXb9VveQLZCKB9awzgsurbdtqk61qjsoXU1"
       - "--port=30336"
       - "--wasm-execution=Compiled"
+      - "--no-telemetry"
+      - "--no-prometheus"
 volumes:
   node-data:
