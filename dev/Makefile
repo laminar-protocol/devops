@@ -11,3 +11,6 @@ restart: pull down up
 
 down:
 	docker-compose down
+
+purge:
+	docker volume rm dev_node-data
