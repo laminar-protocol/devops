@@ -95,36 +95,36 @@ services:
       - "--port=30335"
       - "--wasm-execution=Compiled"
       - "--no-prometheus"
-  validator-3:
-    ports:
-      - "39944:9944"
-      - "39933:9933"
-      - "30336:30336"
-    volumes:
-      - node-data:/data
-    image: laminar/laminar-node:latest
-    restart: always
-    command:
-      - "--base-path=/data/validator-3"
-      - "--chain=turbulence"
-      - "--node-key=${VALIDATOR_3}"
-      - "--validator"
-      - "--unsafe-ws-external"
-      - "--unsafe-rpc-external"
-      - "--rpc-cors=all"
-      - "--name=laminar-validator-3"
-      - "--sentry-nodes"
-      - "/dns4/testnet-bootnode-1.laminar-chain.laminar.one/tcp/30333/p2p/12D3KooWNCe9dEpPhswckrX5ZHhdtZ3r5sg6CcgKfgyhw3seuwtB"
-      - "--reserved-nodes"
-      - "/dns4/sentry/tcp/30333/p2p/12D3KooWNCe9dEpPhswckrX5ZHhdtZ3r5sg6CcgKfgyhw3seuwtB"
-      - "--reserved-nodes"
-      - "/dns4/validator-1/tcp/30334/p2p/12D3KooWB3qTA2jJV2hPej49LuKEPY78GJiTXvSqdpVqhPqwnFVV"
-      - "--reserved-nodes"
-      - "/dns4/validator-2/tcp/30335/p2p/12D3KooWHez88Dc9tRKmBLEiPXXCRCUCoPsbwiQGmCBNEKqTKnhr"
-      - "--reserved-nodes"
-      - "/dns4/validator-3/tcp/30336/p2p/12D3KooWAXTkgjtDwxQNzRe5JnbiiuYChwSCYtFV1fs1TsKWmCSV"
-      - "--port=30336"
-      - "--wasm-execution=Compiled"
-      - "--no-prometheus"
+  # validator-3:
+  #   ports:
+  #     - "39944:9944"
+  #     - "39933:9933"
+  #     - "30336:30336"
+  #   volumes:
+  #     - node-data:/data
+  #   image: laminar/laminar-node:latest
+  #   restart: always
+  #   command:
+  #     - "--base-path=/data/validator-3"
+  #     - "--chain=turbulence"
+  #     - "--node-key=${VALIDATOR_3}"
+  #     - "--validator"
+  #     - "--unsafe-ws-external"
+  #     - "--unsafe-rpc-external"
+  #     - "--rpc-cors=all"
+  #     - "--name=laminar-validator-3"
+  #     - "--sentry-nodes"
+  #     - "/dns4/testnet-bootnode-1.laminar-chain.laminar.one/tcp/30333/p2p/12D3KooWNCe9dEpPhswckrX5ZHhdtZ3r5sg6CcgKfgyhw3seuwtB"
+  #     - "--reserved-nodes"
+  #     - "/dns4/sentry/tcp/30333/p2p/12D3KooWNCe9dEpPhswckrX5ZHhdtZ3r5sg6CcgKfgyhw3seuwtB"
+  #     - "--reserved-nodes"
+  #     - "/dns4/validator-1/tcp/30334/p2p/12D3KooWB3qTA2jJV2hPej49LuKEPY78GJiTXvSqdpVqhPqwnFVV"
+  #     - "--reserved-nodes"
+  #     - "/dns4/validator-2/tcp/30335/p2p/12D3KooWHez88Dc9tRKmBLEiPXXCRCUCoPsbwiQGmCBNEKqTKnhr"
+  #     - "--reserved-nodes"
+  #     - "/dns4/validator-3/tcp/30336/p2p/12D3KooWAXTkgjtDwxQNzRe5JnbiiuYChwSCYtFV1fs1TsKWmCSV"
+  #     - "--port=30336"
+  #     - "--wasm-execution=Compiled"
+  #     - "--no-prometheus"
 volumes:
   node-data:
