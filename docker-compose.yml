@@ -64,7 +64,7 @@ services:
       - "--port=30334"
       - "--wasm-execution=Compiled"
       - "--no-prometheus"
-      - "--rpc-method=Unsafe"
+      - "--rpc-methods=Unsafe"
   validator-2:
     ports:
       - "29944:9944"
@@ -96,7 +96,7 @@ services:
       - "--port=30335"
       - "--wasm-execution=Compiled"
       - "--no-prometheus"
-      - "--rpc-method=Unsafe"
+      - "--rpc-methods=Unsafe"
   validator-3:
     ports:
       - "39944:9944"
@@ -128,6 +128,6 @@ services:
       - "--port=30336"
       - "--wasm-execution=Compiled"
       - "--no-prometheus"
-      - "--rpc-method=Unsafe"
+      - "--rpc-methods=Unsafe"
 volumes:
   node-data:
